@@ -1,0 +1,14 @@
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.csprojAssemblyReference.cache
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.formName.resources
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.Properties.Resources.resources
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.GenerateResource.cache
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.CoreCompileInputs.cache
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\bin\Debug\Syllabus Generator.exe.config
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\bin\Debug\Syllabus Generator.exe
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\bin\Debug\Syllabus Generator.pdb
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\bin\Debug\Xceed.Words.NET.dll
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.CopyComplete
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.exe
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.pdb
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormGradebook.resources
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormTopic.resources
