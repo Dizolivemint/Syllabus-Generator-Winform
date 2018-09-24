@@ -46,7 +46,7 @@ namespace Syllabus_Generator
             string replaceText = "";
             
             replaceText = textReplace.Text;
-            oWord.SearchReplace(findText, replaceText, true);
+            oWord.SearchReplace(findText, replaceText, false);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
