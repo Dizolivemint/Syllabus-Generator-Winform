@@ -234,5 +234,21 @@ namespace Syllabus_Generator
             }
             return null;
         }
+
+        public object OpenFileDialog()
+        {
+            OpenFileDialog fdlg = new OpenFileDialog();
+
+            fdlg.Title = "Destination";
+            fdlg.InitialDirectory = this.path;
+            fdlg.Filter = "All files (*.*)|*.*|Template files (*.dotx)|*.dotx";
+            fdlg.FilterIndex = 2;
+            fdlg.RestoreDirectory = true;
+            if (fdlg.ShowDialog() == DialogResult.OK)
+            {
+                return (Object)fdlg.FileName;
+            }
+            return null;
+        }
     }
 }

@@ -74,12 +74,21 @@
             this.groupBoxDetails = new System.Windows.Forms.GroupBox();
             this.groupBoxCourseDescription = new System.Windows.Forms.GroupBox();
             this.textCourseDescription = new System.Windows.Forms.TextBox();
+            this.buttonTermAdd = new System.Windows.Forms.Button();
+            this.buttonTermEdit = new System.Windows.Forms.Button();
+            this.listBoxTerm = new System.Windows.Forms.ListBox();
+            this.groupBoxTerm = new System.Windows.Forms.GroupBox();
+            this.buttonOpenTemplate = new System.Windows.Forms.Button();
+            this.textCourseCode = new System.Windows.Forms.TextBox();
+            this.textSectionNumber = new System.Windows.Forms.TextBox();
+            this.labelSectionNumber = new System.Windows.Forms.Label();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxReading.SuspendLayout();
             this.groupBoxFindReplace.SuspendLayout();
             this.groupBoxFile.SuspendLayout();
             this.groupBoxGrid.SuspendLayout();
             this.groupBoxCourseDescription.SuspendLayout();
+            this.groupBoxTerm.SuspendLayout();
             this.SuspendLayout();
             // 
             // textFind
@@ -131,21 +140,22 @@
             this.labelShortname.AutoSize = true;
             this.labelShortname.Location = new System.Drawing.Point(24, 29);
             this.labelShortname.Name = "labelShortname";
-            this.labelShortname.Size = new System.Drawing.Size(99, 13);
+            this.labelShortname.Size = new System.Drawing.Size(68, 13);
             this.labelShortname.TabIndex = 5;
-            this.labelShortname.Text = "Course Short Name";
+            this.labelShortname.Text = "Course Code";
             // 
             // textShortName
             // 
-            this.textShortName.Location = new System.Drawing.Point(27, 45);
+            this.textShortName.Location = new System.Drawing.Point(28, 129);
             this.textShortName.Name = "textShortName";
+            this.textShortName.ReadOnly = true;
             this.textShortName.Size = new System.Drawing.Size(236, 20);
             this.textShortName.TabIndex = 6;
             // 
             // labelCourseFullName
             // 
             this.labelCourseFullName.AutoSize = true;
-            this.labelCourseFullName.Location = new System.Drawing.Point(24, 84);
+            this.labelCourseFullName.Location = new System.Drawing.Point(24, 167);
             this.labelCourseFullName.Name = "labelCourseFullName";
             this.labelCourseFullName.Size = new System.Drawing.Size(90, 13);
             this.labelCourseFullName.TabIndex = 7;
@@ -153,7 +163,7 @@
             // 
             // textFullName
             // 
-            this.textFullName.Location = new System.Drawing.Point(27, 100);
+            this.textFullName.Location = new System.Drawing.Point(27, 183);
             this.textFullName.Name = "textFullName";
             this.textFullName.Size = new System.Drawing.Size(236, 20);
             this.textFullName.TabIndex = 8;
@@ -188,6 +198,9 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.labelSectionNumber);
+            this.groupBoxInfo.Controls.Add(this.textSectionNumber);
+            this.groupBoxInfo.Controls.Add(this.textCourseCode);
             this.groupBoxInfo.Controls.Add(this.labelTeacherName);
             this.groupBoxInfo.Controls.Add(this.textTeacherName);
             this.groupBoxInfo.Controls.Add(this.labelTeacherEmail);
@@ -200,9 +213,9 @@
             this.groupBoxInfo.Controls.Add(this.textShortName);
             this.groupBoxInfo.Controls.Add(this.labelCourseFullName);
             this.groupBoxInfo.Controls.Add(this.textFullName);
-            this.groupBoxInfo.Location = new System.Drawing.Point(19, 15);
+            this.groupBoxInfo.Location = new System.Drawing.Point(25, 93);
             this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Size = new System.Drawing.Size(364, 336);
+            this.groupBoxInfo.Size = new System.Drawing.Size(364, 516);
             this.groupBoxInfo.TabIndex = 12;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Basic Information";
@@ -210,7 +223,7 @@
             // labelTeacherName
             // 
             this.labelTeacherName.AutoSize = true;
-            this.labelTeacherName.Location = new System.Drawing.Point(25, 226);
+            this.labelTeacherName.Location = new System.Drawing.Point(25, 309);
             this.labelTeacherName.Name = "labelTeacherName";
             this.labelTeacherName.Size = new System.Drawing.Size(78, 13);
             this.labelTeacherName.TabIndex = 13;
@@ -218,7 +231,7 @@
             // 
             // textTeacherName
             // 
-            this.textTeacherName.Location = new System.Drawing.Point(28, 242);
+            this.textTeacherName.Location = new System.Drawing.Point(28, 325);
             this.textTeacherName.Name = "textTeacherName";
             this.textTeacherName.Size = new System.Drawing.Size(236, 20);
             this.textTeacherName.TabIndex = 14;
@@ -226,7 +239,7 @@
             // labelTeacherEmail
             // 
             this.labelTeacherEmail.AutoSize = true;
-            this.labelTeacherEmail.Location = new System.Drawing.Point(24, 275);
+            this.labelTeacherEmail.Location = new System.Drawing.Point(24, 358);
             this.labelTeacherEmail.Name = "labelTeacherEmail";
             this.labelTeacherEmail.Size = new System.Drawing.Size(75, 13);
             this.labelTeacherEmail.TabIndex = 15;
@@ -234,7 +247,7 @@
             // 
             // textTeacherEmail
             // 
-            this.textTeacherEmail.Location = new System.Drawing.Point(27, 291);
+            this.textTeacherEmail.Location = new System.Drawing.Point(27, 374);
             this.textTeacherEmail.Name = "textTeacherEmail";
             this.textTeacherEmail.Size = new System.Drawing.Size(236, 20);
             this.textTeacherEmail.TabIndex = 16;
@@ -242,7 +255,7 @@
             // labelUnits
             // 
             this.labelUnits.AutoSize = true;
-            this.labelUnits.Location = new System.Drawing.Point(25, 132);
+            this.labelUnits.Location = new System.Drawing.Point(25, 215);
             this.labelUnits.Name = "labelUnits";
             this.labelUnits.Size = new System.Drawing.Size(31, 13);
             this.labelUnits.TabIndex = 9;
@@ -250,7 +263,7 @@
             // 
             // textUnits
             // 
-            this.textUnits.Location = new System.Drawing.Point(28, 148);
+            this.textUnits.Location = new System.Drawing.Point(28, 231);
             this.textUnits.Name = "textUnits";
             this.textUnits.Size = new System.Drawing.Size(236, 20);
             this.textUnits.TabIndex = 10;
@@ -258,7 +271,7 @@
             // labelCourseHours
             // 
             this.labelCourseHours.AutoSize = true;
-            this.labelCourseHours.Location = new System.Drawing.Point(24, 181);
+            this.labelCourseHours.Location = new System.Drawing.Point(24, 264);
             this.labelCourseHours.Name = "labelCourseHours";
             this.labelCourseHours.Size = new System.Drawing.Size(71, 13);
             this.labelCourseHours.TabIndex = 11;
@@ -266,7 +279,7 @@
             // 
             // textCourseHours
             // 
-            this.textCourseHours.Location = new System.Drawing.Point(27, 197);
+            this.textCourseHours.Location = new System.Drawing.Point(27, 280);
             this.textCourseHours.Name = "textCourseHours";
             this.textCourseHours.Size = new System.Drawing.Size(236, 20);
             this.textCourseHours.TabIndex = 12;
@@ -391,7 +404,7 @@
             this.groupBoxGrid.Controls.Add(this.textAssignmentName);
             this.groupBoxGrid.Location = new System.Drawing.Point(416, 196);
             this.groupBoxGrid.Name = "groupBoxGrid";
-            this.groupBoxGrid.Size = new System.Drawing.Size(361, 340);
+            this.groupBoxGrid.Size = new System.Drawing.Size(361, 324);
             this.groupBoxGrid.TabIndex = 18;
             this.groupBoxGrid.TabStop = false;
             this.groupBoxGrid.Text = "Assignment Grid";
@@ -482,9 +495,9 @@
             // 
             // groupBoxDetails
             // 
-            this.groupBoxDetails.Location = new System.Drawing.Point(19, 371);
+            this.groupBoxDetails.Location = new System.Drawing.Point(416, 526);
             this.groupBoxDetails.Name = "groupBoxDetails";
-            this.groupBoxDetails.Size = new System.Drawing.Size(364, 238);
+            this.groupBoxDetails.Size = new System.Drawing.Size(364, 83);
             this.groupBoxDetails.TabIndex = 19;
             this.groupBoxDetails.TabStop = false;
             this.groupBoxDetails.Text = "Assignment Details";
@@ -509,11 +522,84 @@
             this.textCourseDescription.TabIndex = 0;
             this.textCourseDescription.Text = resources.GetString("textCourseDescription.Text");
             // 
+            // buttonTermAdd
+            // 
+            this.buttonTermAdd.Location = new System.Drawing.Point(16, 85);
+            this.buttonTermAdd.Name = "buttonTermAdd";
+            this.buttonTermAdd.Size = new System.Drawing.Size(117, 36);
+            this.buttonTermAdd.TabIndex = 21;
+            this.buttonTermAdd.Text = "Add";
+            this.buttonTermAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonTermEdit
+            // 
+            this.buttonTermEdit.Location = new System.Drawing.Point(16, 134);
+            this.buttonTermEdit.Name = "buttonTermEdit";
+            this.buttonTermEdit.Size = new System.Drawing.Size(117, 36);
+            this.buttonTermEdit.TabIndex = 22;
+            this.buttonTermEdit.Text = "Edit";
+            this.buttonTermEdit.UseVisualStyleBackColor = true;
+            // 
+            // listBoxTerm
+            // 
+            this.listBoxTerm.FormattingEnabled = true;
+            this.listBoxTerm.Location = new System.Drawing.Point(16, 26);
+            this.listBoxTerm.Name = "listBoxTerm";
+            this.listBoxTerm.Size = new System.Drawing.Size(116, 43);
+            this.listBoxTerm.TabIndex = 23;
+            // 
+            // groupBoxTerm
+            // 
+            this.groupBoxTerm.Controls.Add(this.listBoxTerm);
+            this.groupBoxTerm.Controls.Add(this.buttonTermEdit);
+            this.groupBoxTerm.Controls.Add(this.buttonTermAdd);
+            this.groupBoxTerm.Location = new System.Drawing.Point(811, 225);
+            this.groupBoxTerm.Name = "groupBoxTerm";
+            this.groupBoxTerm.Size = new System.Drawing.Size(153, 189);
+            this.groupBoxTerm.TabIndex = 24;
+            this.groupBoxTerm.TabStop = false;
+            this.groupBoxTerm.Text = "Select Term";
+            // 
+            // buttonOpenTemplate
+            // 
+            this.buttonOpenTemplate.Location = new System.Drawing.Point(25, 32);
+            this.buttonOpenTemplate.Name = "buttonOpenTemplate";
+            this.buttonOpenTemplate.Size = new System.Drawing.Size(145, 37);
+            this.buttonOpenTemplate.TabIndex = 18;
+            this.buttonOpenTemplate.Text = "&Open Template";
+            this.buttonOpenTemplate.UseVisualStyleBackColor = true;
+            this.buttonOpenTemplate.Click += new System.EventHandler(this.buttonOpenTemplate_Click);
+            // 
+            // textCourseCode
+            // 
+            this.textCourseCode.Location = new System.Drawing.Point(27, 45);
+            this.textCourseCode.Name = "textCourseCode";
+            this.textCourseCode.Size = new System.Drawing.Size(236, 20);
+            this.textCourseCode.TabIndex = 18;
+            // 
+            // textSectionNumber
+            // 
+            this.textSectionNumber.Location = new System.Drawing.Point(27, 93);
+            this.textSectionNumber.Name = "textSectionNumber";
+            this.textSectionNumber.Size = new System.Drawing.Size(39, 20);
+            this.textSectionNumber.TabIndex = 19;
+            // 
+            // labelSectionNumber
+            // 
+            this.labelSectionNumber.AutoSize = true;
+            this.labelSectionNumber.Location = new System.Drawing.Point(25, 78);
+            this.labelSectionNumber.Name = "labelSectionNumber";
+            this.labelSectionNumber.Size = new System.Drawing.Size(83, 13);
+            this.labelSectionNumber.TabIndex = 20;
+            this.labelSectionNumber.Text = "Section Number";
+            // 
             // FormName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 630);
+            this.Controls.Add(this.buttonOpenTemplate);
+            this.Controls.Add(this.groupBoxTerm);
             this.Controls.Add(this.groupBoxCourseDescription);
             this.Controls.Add(this.groupBoxDetails);
             this.Controls.Add(this.groupBoxGrid);
@@ -536,6 +622,7 @@
             this.groupBoxGrid.PerformLayout();
             this.groupBoxCourseDescription.ResumeLayout(false);
             this.groupBoxCourseDescription.PerformLayout();
+            this.groupBoxTerm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -587,6 +674,14 @@
         private System.Windows.Forms.TextBox textTeacherName;
         private System.Windows.Forms.Label labelTeacherEmail;
         private System.Windows.Forms.TextBox textTeacherEmail;
+        private System.Windows.Forms.Button buttonTermAdd;
+        private System.Windows.Forms.Button buttonTermEdit;
+        private System.Windows.Forms.ListBox listBoxTerm;
+        private System.Windows.Forms.GroupBox groupBoxTerm;
+        private System.Windows.Forms.Button buttonOpenTemplate;
+        private System.Windows.Forms.Label labelSectionNumber;
+        private System.Windows.Forms.TextBox textSectionNumber;
+        private System.Windows.Forms.TextBox textCourseCode;
     }
 }
 

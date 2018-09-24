@@ -15,7 +15,7 @@ namespace Syllabus_Generator
     public partial class FormName : Form
     {
         private Oword oWord = new Oword("PCOM_T-DACM_Master_Template.dotx", "");
-        private bool isDeveloper = true;
+        private bool isDeveloper = false;
 
         public FormName()
         {
@@ -81,6 +81,11 @@ namespace Syllabus_Generator
         private void buttonBackup_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void buttonOpenTemplate_Click(object sender, EventArgs e)
+        {
+            oWord.fileSource = (String)oWord.OpenFileDialog();
         }
     }
 }
