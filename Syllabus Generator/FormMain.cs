@@ -29,21 +29,24 @@ namespace Syllabus_Generator
 
         private void formName_Load(object sender, EventArgs e)
         {
-
+            textRequiredTexts.Text = "There are no required texts for this course.";
+            textOptionalTexts.Text = "You will be required to read online materials and any assigned articles.";
         }
 
-        private void buttonReplace_Click(object sender, EventArgs e)
-        {                
+        private void SearchReplace()
+        {
             foreach (var textBox in Controls.OfType<GroupBox>().SelectMany(groupBox => groupBox.Controls.OfType<TextBox>()))
             {
                 oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, true);
             }
-
-            // string findText = "";
-            // string replaceText = "";
+        }
+        private void buttonReplace_Click(object sender, EventArgs e)
+        {                
+            string findText = "";
+            string replaceText = "";
             
-            // replaceText = textReplace.Text;
-            // oWord.SearchReplace(findText, replaceText, true);
+            replaceText = textReplace.Text;
+            oWord.SearchReplace(findText, replaceText, true);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -51,6 +54,15 @@ namespace Syllabus_Generator
             textTarget.Text = (String)oWord.SaveFileDialog();
             oWord.fileTarget = textTarget.Text;
             oWord.SaveAs(oWord.fileTarget);
+        }
+
+        private void textFind_TextChanged(object sender, EventArgs e)
+        {
+            if (textFind.Text == "")
+                buttonReplace.Enabled = false;
+            else
+                buttonReplace.Enabled = true;
+
         }
     }
 }
