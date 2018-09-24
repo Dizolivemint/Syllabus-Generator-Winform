@@ -51,6 +51,8 @@ namespace Syllabus_Generator
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            SearchReplace();
+
             textTarget.Text = (String)oWord.SaveFileDialog();
             oWord.fileTarget = textTarget.Text;
             oWord.SaveAs(oWord.fileTarget);
@@ -63,6 +65,11 @@ namespace Syllabus_Generator
             else
                 buttonReplace.Enabled = true;
 
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

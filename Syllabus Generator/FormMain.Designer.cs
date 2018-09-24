@@ -254,6 +254,7 @@
             this.buttonExit.TabIndex = 15;
             this.buttonExit.Text = "E&xit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // groupBoxFile
             // 
@@ -290,6 +291,7 @@
             // 
             // buttonBackup
             // 
+            this.buttonBackup.Enabled = false;
             this.buttonBackup.Location = new System.Drawing.Point(19, 31);
             this.buttonBackup.Name = "buttonBackup";
             this.buttonBackup.Size = new System.Drawing.Size(145, 37);
@@ -299,6 +301,7 @@
             // 
             // buttonImport
             // 
+            this.buttonImport.Enabled = false;
             this.buttonImport.Location = new System.Drawing.Point(185, 31);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(145, 37);
