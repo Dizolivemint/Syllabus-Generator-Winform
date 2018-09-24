@@ -37,7 +37,7 @@ namespace Syllabus_Generator
         {
             foreach (var textBox in Controls.OfType<GroupBox>().SelectMany(groupBox => groupBox.Controls.OfType<TextBox>()))
             {
-                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, true);
+                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, false);
             }
         }
         private void buttonReplace_Click(object sender, EventArgs e)
