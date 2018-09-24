@@ -212,8 +212,9 @@
             // textRequiredTexts
             // 
             this.textRequiredTexts.Location = new System.Drawing.Point(19, 58);
+            this.textRequiredTexts.Multiline = true;
             this.textRequiredTexts.Name = "textRequiredTexts";
-            this.textRequiredTexts.Size = new System.Drawing.Size(309, 20);
+            this.textRequiredTexts.Size = new System.Drawing.Size(309, 22);
             this.textRequiredTexts.TabIndex = 1;
             // 
             // labelOptionalTexts
@@ -228,6 +229,7 @@
             // textOptionalTexts
             // 
             this.textOptionalTexts.Location = new System.Drawing.Point(19, 110);
+            this.textOptionalTexts.Multiline = true;
             this.textOptionalTexts.Name = "textOptionalTexts";
             this.textOptionalTexts.Size = new System.Drawing.Size(309, 20);
             this.textOptionalTexts.TabIndex = 3;
