@@ -14,9 +14,17 @@ namespace Syllabus_Generator
 {
     public partial class FormName : Form
     {
+        private Oword oWord = new Oword("Template.dotx", "");
+
         public FormName()
         {
             InitializeComponent();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            oWord.Close();
         }
 
         private void formName_Load(object sender, EventArgs e)
@@ -24,13 +32,18 @@ namespace Syllabus_Generator
 
         }
 
-        
-
         private void buttonReplace_Click(object sender, EventArgs e)
         {
             string findText = textFind.Text;
             string replaceText = textReplace.Text;
-            SearchReplace(findText, replaceText);
+            oWord.SearchReplace(findText, replaceText, true);
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            textTarget.Text = (String)oWord.SaveFileDialog();
+            oWord.fileTarget = textTarget.Text;
+            oWord.SaveAs(oWord.fileTarget);
         }
     }
 }
