@@ -117,14 +117,7 @@ namespace Syllabus_Generator
                         /** if (msg)
                             MessageBox.Show("The text could not be located."); **/
                     }
-                }
-                else
-                {
-
-                }
-                    
-
-                
+                }          
             }
 
             // All other Header Replacements
@@ -152,13 +145,7 @@ namespace Syllabus_Generator
                         /**if (msg)
                             MessageBox.Show("The text could not be located.");**/
                     }
-                }
-                else
-                {
-
-                }
-
-                
+                }   
             }
 
             findObject.ClearFormatting();
@@ -176,11 +163,6 @@ namespace Syllabus_Generator
                     if (msg)
                         MessageBox.Show($"Replaced: {findText} with {replaceText}.");
                 }
-                else
-                {
-                    /**if (msg)
-                        MessageBox.Show("The text could not be located.");**/
-                }
             }
             else
             {
@@ -190,15 +172,6 @@ namespace Syllabus_Generator
                 range.Text = replaceText;
                 
                 MessageBox.Show($"Replaced: {(String)oFind} with {replaceText}.");
-                /**
-                while (oWord.Selection.Find.Execute(ref oFind, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
-                    ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
-                    ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
-                {
-                    oWord.Selection.Text = replaceText;
-                    oWord.Selection.Collapse();
-                }
-    **/
             }
         }
 

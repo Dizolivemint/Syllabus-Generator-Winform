@@ -72,5 +72,15 @@ namespace Syllabus_Generator
         {
             this.Close();
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            listBoxGrid.Items.Add($"{textAssignmentName.Text} {textAssignmentPoints.Text} {textAssignmentDueDate.Text}");
+        }
+
+        private void buttonBackup_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

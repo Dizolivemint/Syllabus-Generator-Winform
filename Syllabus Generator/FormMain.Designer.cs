@@ -42,6 +42,14 @@
             this.textTarget = new System.Windows.Forms.TextBox();
             this.labelTarget = new System.Windows.Forms.Label();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.labelTeacherName = new System.Windows.Forms.Label();
+            this.textTeacherName = new System.Windows.Forms.TextBox();
+            this.labelTeacherEmail = new System.Windows.Forms.Label();
+            this.textTeacherEmail = new System.Windows.Forms.TextBox();
+            this.labelUnits = new System.Windows.Forms.Label();
+            this.textUnits = new System.Windows.Forms.TextBox();
+            this.labelCourseHours = new System.Windows.Forms.Label();
+            this.textCourseHours = new System.Windows.Forms.TextBox();
             this.groupBoxReading = new System.Windows.Forms.GroupBox();
             this.textOptionalTexts = new System.Windows.Forms.TextBox();
             this.labelOptionalTexts = new System.Windows.Forms.Label();
@@ -60,16 +68,12 @@
             this.labelPercentage = new System.Windows.Forms.Label();
             this.labelAssignmentName = new System.Windows.Forms.Label();
             this.listBoxGrid = new System.Windows.Forms.ListBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textAssignmentDueDate = new System.Windows.Forms.TextBox();
+            this.textAssignmentPoints = new System.Windows.Forms.TextBox();
             this.textAssignmentName = new System.Windows.Forms.TextBox();
             this.groupBoxDetails = new System.Windows.Forms.GroupBox();
             this.groupBoxCourseDescription = new System.Windows.Forms.GroupBox();
             this.textCourseDescription = new System.Windows.Forms.TextBox();
-            this.labelUnits = new System.Windows.Forms.Label();
-            this.textUnits = new System.Windows.Forms.TextBox();
-            this.labelCourseHours = new System.Windows.Forms.Label();
-            this.textCourseHours = new System.Windows.Forms.TextBox();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxReading.SuspendLayout();
             this.groupBoxFindReplace.SuspendLayout();
@@ -184,6 +188,10 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.labelTeacherName);
+            this.groupBoxInfo.Controls.Add(this.textTeacherName);
+            this.groupBoxInfo.Controls.Add(this.labelTeacherEmail);
+            this.groupBoxInfo.Controls.Add(this.textTeacherEmail);
             this.groupBoxInfo.Controls.Add(this.labelUnits);
             this.groupBoxInfo.Controls.Add(this.textUnits);
             this.groupBoxInfo.Controls.Add(this.labelCourseHours);
@@ -194,10 +202,74 @@
             this.groupBoxInfo.Controls.Add(this.textFullName);
             this.groupBoxInfo.Location = new System.Drawing.Point(19, 15);
             this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Size = new System.Drawing.Size(364, 248);
+            this.groupBoxInfo.Size = new System.Drawing.Size(364, 336);
             this.groupBoxInfo.TabIndex = 12;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Basic Information";
+            // 
+            // labelTeacherName
+            // 
+            this.labelTeacherName.AutoSize = true;
+            this.labelTeacherName.Location = new System.Drawing.Point(25, 226);
+            this.labelTeacherName.Name = "labelTeacherName";
+            this.labelTeacherName.Size = new System.Drawing.Size(78, 13);
+            this.labelTeacherName.TabIndex = 13;
+            this.labelTeacherName.Text = "Teacher Name";
+            // 
+            // textTeacherName
+            // 
+            this.textTeacherName.Location = new System.Drawing.Point(28, 242);
+            this.textTeacherName.Name = "textTeacherName";
+            this.textTeacherName.Size = new System.Drawing.Size(236, 20);
+            this.textTeacherName.TabIndex = 14;
+            // 
+            // labelTeacherEmail
+            // 
+            this.labelTeacherEmail.AutoSize = true;
+            this.labelTeacherEmail.Location = new System.Drawing.Point(24, 275);
+            this.labelTeacherEmail.Name = "labelTeacherEmail";
+            this.labelTeacherEmail.Size = new System.Drawing.Size(75, 13);
+            this.labelTeacherEmail.TabIndex = 15;
+            this.labelTeacherEmail.Text = "Teacher Email";
+            // 
+            // textTeacherEmail
+            // 
+            this.textTeacherEmail.Location = new System.Drawing.Point(27, 291);
+            this.textTeacherEmail.Name = "textTeacherEmail";
+            this.textTeacherEmail.Size = new System.Drawing.Size(236, 20);
+            this.textTeacherEmail.TabIndex = 16;
+            // 
+            // labelUnits
+            // 
+            this.labelUnits.AutoSize = true;
+            this.labelUnits.Location = new System.Drawing.Point(25, 132);
+            this.labelUnits.Name = "labelUnits";
+            this.labelUnits.Size = new System.Drawing.Size(31, 13);
+            this.labelUnits.TabIndex = 9;
+            this.labelUnits.Text = "Units";
+            // 
+            // textUnits
+            // 
+            this.textUnits.Location = new System.Drawing.Point(28, 148);
+            this.textUnits.Name = "textUnits";
+            this.textUnits.Size = new System.Drawing.Size(236, 20);
+            this.textUnits.TabIndex = 10;
+            // 
+            // labelCourseHours
+            // 
+            this.labelCourseHours.AutoSize = true;
+            this.labelCourseHours.Location = new System.Drawing.Point(24, 181);
+            this.labelCourseHours.Name = "labelCourseHours";
+            this.labelCourseHours.Size = new System.Drawing.Size(71, 13);
+            this.labelCourseHours.TabIndex = 11;
+            this.labelCourseHours.Text = "Course Hours";
+            // 
+            // textCourseHours
+            // 
+            this.textCourseHours.Location = new System.Drawing.Point(27, 197);
+            this.textCourseHours.Name = "textCourseHours";
+            this.textCourseHours.Size = new System.Drawing.Size(236, 20);
+            this.textCourseHours.TabIndex = 12;
             // 
             // groupBoxReading
             // 
@@ -303,6 +375,7 @@
             this.buttonBackup.TabIndex = 16;
             this.buttonBackup.Text = "&Backup";
             this.buttonBackup.UseVisualStyleBackColor = true;
+            this.buttonBackup.Click += new System.EventHandler(this.buttonBackup_Click);
             // 
             // groupBoxGrid
             // 
@@ -313,10 +386,10 @@
             this.groupBoxGrid.Controls.Add(this.labelPercentage);
             this.groupBoxGrid.Controls.Add(this.labelAssignmentName);
             this.groupBoxGrid.Controls.Add(this.listBoxGrid);
-            this.groupBoxGrid.Controls.Add(this.textBox3);
-            this.groupBoxGrid.Controls.Add(this.textBox2);
+            this.groupBoxGrid.Controls.Add(this.textAssignmentDueDate);
+            this.groupBoxGrid.Controls.Add(this.textAssignmentPoints);
             this.groupBoxGrid.Controls.Add(this.textAssignmentName);
-            this.groupBoxGrid.Location = new System.Drawing.Point(19, 269);
+            this.groupBoxGrid.Location = new System.Drawing.Point(416, 196);
             this.groupBoxGrid.Name = "groupBoxGrid";
             this.groupBoxGrid.Size = new System.Drawing.Size(361, 340);
             this.groupBoxGrid.TabIndex = 18;
@@ -349,6 +422,7 @@
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "&Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // labelDue
             // 
@@ -385,19 +459,19 @@
             this.listBoxGrid.Size = new System.Drawing.Size(175, 264);
             this.listBoxGrid.TabIndex = 4;
             // 
-            // textBox3
+            // textAssignmentDueDate
             // 
-            this.textBox3.Location = new System.Drawing.Point(27, 147);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(102, 20);
-            this.textBox3.TabIndex = 2;
+            this.textAssignmentDueDate.Location = new System.Drawing.Point(27, 147);
+            this.textAssignmentDueDate.Name = "textAssignmentDueDate";
+            this.textAssignmentDueDate.Size = new System.Drawing.Size(102, 20);
+            this.textAssignmentDueDate.TabIndex = 2;
             // 
-            // textBox2
+            // textAssignmentPoints
             // 
-            this.textBox2.Location = new System.Drawing.Point(27, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(102, 20);
-            this.textBox2.TabIndex = 1;
+            this.textAssignmentPoints.Location = new System.Drawing.Point(27, 99);
+            this.textAssignmentPoints.Name = "textAssignmentPoints";
+            this.textAssignmentPoints.Size = new System.Drawing.Size(102, 20);
+            this.textAssignmentPoints.TabIndex = 1;
             // 
             // textAssignmentName
             // 
@@ -408,9 +482,9 @@
             // 
             // groupBoxDetails
             // 
-            this.groupBoxDetails.Location = new System.Drawing.Point(417, 205);
+            this.groupBoxDetails.Location = new System.Drawing.Point(19, 371);
             this.groupBoxDetails.Name = "groupBoxDetails";
-            this.groupBoxDetails.Size = new System.Drawing.Size(351, 257);
+            this.groupBoxDetails.Size = new System.Drawing.Size(364, 238);
             this.groupBoxDetails.TabIndex = 19;
             this.groupBoxDetails.TabStop = false;
             this.groupBoxDetails.Text = "Assignment Details";
@@ -434,38 +508,6 @@
             this.textCourseDescription.Size = new System.Drawing.Size(340, 126);
             this.textCourseDescription.TabIndex = 0;
             this.textCourseDescription.Text = resources.GetString("textCourseDescription.Text");
-            // 
-            // labelUnits
-            // 
-            this.labelUnits.AutoSize = true;
-            this.labelUnits.Location = new System.Drawing.Point(25, 132);
-            this.labelUnits.Name = "labelUnits";
-            this.labelUnits.Size = new System.Drawing.Size(31, 13);
-            this.labelUnits.TabIndex = 9;
-            this.labelUnits.Text = "Units";
-            // 
-            // textUnits
-            // 
-            this.textUnits.Location = new System.Drawing.Point(28, 148);
-            this.textUnits.Name = "textUnits";
-            this.textUnits.Size = new System.Drawing.Size(236, 20);
-            this.textUnits.TabIndex = 10;
-            // 
-            // labelCourseHours
-            // 
-            this.labelCourseHours.AutoSize = true;
-            this.labelCourseHours.Location = new System.Drawing.Point(24, 181);
-            this.labelCourseHours.Name = "labelCourseHours";
-            this.labelCourseHours.Size = new System.Drawing.Size(71, 13);
-            this.labelCourseHours.TabIndex = 11;
-            this.labelCourseHours.Text = "Course Hours";
-            // 
-            // textCourseHours
-            // 
-            this.textCourseHours.Location = new System.Drawing.Point(27, 197);
-            this.textCourseHours.Name = "textCourseHours";
-            this.textCourseHours.Size = new System.Drawing.Size(236, 20);
-            this.textCourseHours.TabIndex = 12;
             // 
             // FormName
             // 
@@ -531,8 +573,8 @@
         private System.Windows.Forms.Label labelPercentage;
         private System.Windows.Forms.Label labelAssignmentName;
         private System.Windows.Forms.ListBox listBoxGrid;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textAssignmentDueDate;
+        private System.Windows.Forms.TextBox textAssignmentPoints;
         private System.Windows.Forms.TextBox textAssignmentName;
         private System.Windows.Forms.GroupBox groupBoxDetails;
         private System.Windows.Forms.GroupBox groupBoxCourseDescription;
@@ -541,6 +583,10 @@
         private System.Windows.Forms.TextBox textUnits;
         private System.Windows.Forms.Label labelCourseHours;
         private System.Windows.Forms.TextBox textCourseHours;
+        private System.Windows.Forms.Label labelTeacherName;
+        private System.Windows.Forms.TextBox textTeacherName;
+        private System.Windows.Forms.Label labelTeacherEmail;
+        private System.Windows.Forms.TextBox textTeacherEmail;
     }
 }
 
