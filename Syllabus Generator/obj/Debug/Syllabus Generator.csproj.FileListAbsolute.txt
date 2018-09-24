@@ -12,3 +12,17 @@ C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debu
 C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus Generator.pdb
 C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormGradebook.resources
 C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormTopic.resources
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Syllabus Generator.exe.config
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Syllabus Generator.exe
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Syllabus Generator.pdb
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Xceed.Words.NET.dll
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.csprojAssemblyReference.cache
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus_Generator.FormGradebook.resources
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus_Generator.FormTopic.resources
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus_Generator.FormName.resources
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus_Generator.Properties.Resources.resources
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.GenerateResource.cache
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.CoreCompileInputs.cache
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.CopyComplete
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.exe
+C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.pdb

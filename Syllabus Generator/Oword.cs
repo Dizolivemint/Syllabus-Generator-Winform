@@ -85,6 +85,9 @@ namespace Syllabus_Generator
             object replaceAll = Word.WdReplace.wdReplaceAll;
             object oMissing = System.Reflection.Missing.Value;
 
+            Object oFind = (object)findText;
+            Word.Find findObject = oWord.Application.Selection.Find;
+
             // First Header Replacement
             foreach (Word.Section section in oWordDoc.Sections)
             {
@@ -93,20 +96,35 @@ namespace Syllabus_Generator
                 findHeader.ClearFormatting();
                 findHeader.Text = findText;
                 findHeader.Replacement.ClearFormatting();
-                findHeader.Replacement.Text = replaceText;
 
-                if (findHeader.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                oWord.Selection.Find.ClearFormatting();
+                oWord.Selection.Find.Text = findText;
+                oWord.Selection.Find.Replacement.ClearFormatting();
+
+                if (replaceText.ToString().Length < 256)
+                {
+                    findHeader.Replacement.Text = replaceText;
+
+                    if (findHeader.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
-                {
-                    if (msg)
-                        MessageBox.Show($"Replaced: {findText} with {replaceText}.");
+                    {
+                        if (msg)
+                            MessageBox.Show($"Replaced: {findText} with {replaceText}.");
+                    }
+                    else
+                    {
+                        /** if (msg)
+                            MessageBox.Show("The text could not be located."); **/
+                    }
                 }
                 else
                 {
-                    if (msg)
-                        MessageBox.Show("The text could not be located.");
+
                 }
+                    
+
+                
             }
 
             // All other Header Replacements
@@ -117,43 +135,71 @@ namespace Syllabus_Generator
                 findHeader.ClearFormatting();
                 findHeader.Text = findText;
                 findHeader.Replacement.ClearFormatting();
-                findHeader.Replacement.Text = replaceText;
 
-                if (findHeader.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                if (replaceText.ToString().Length < 256)
+                {
+                    findHeader.Replacement.Text = replaceText;
+
+                    if (findHeader.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
+                    {
+                        if (msg)
+                            MessageBox.Show($"Replaced: {findText} with {replaceText}.");
+                    }
+                    else
+                    {
+                        /**if (msg)
+                            MessageBox.Show("The text could not be located.");**/
+                    }
+                }
+                else
+                {
+
+                }
+
+                
+            }
+
+            findObject.ClearFormatting();
+            findObject.Text = findText;
+            findObject.Replacement.ClearFormatting();
+
+            if (replaceText.ToString().Length < 256)
+            {
+                findObject.Replacement.Text = replaceText;
+
+                if (findObject.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
                 {
                     if (msg)
                         MessageBox.Show($"Replaced: {findText} with {replaceText}.");
                 }
                 else
                 {
-                    if (msg)
-                        MessageBox.Show("The text could not be located.");
+                    /**if (msg)
+                        MessageBox.Show("The text could not be located.");**/
                 }
             }
+            else
+            {
+                Word.Range range = this.oWordDoc.Content;
+                range.Find.Execute(findText);
 
-            Word.Find findObject = oWord.Application.Selection.Find;
-
-            findObject.ClearFormatting();
-            findObject.Text = findText;
-            findObject.Replacement.ClearFormatting();
-            findObject.Replacement.Text = replaceText;
-
-            
-
-            if (findObject.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
-                ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
-                ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
-             {
-                if (msg)
-                    MessageBox.Show($"Replaced: {findText} with {replaceText}.");
-             }
-             else
-             {
-                if (msg)
-                   MessageBox.Show("The text could not be located.");
-             }
+                range.Text = replaceText;
+                
+                MessageBox.Show($"Replaced: {(String)oFind} with {replaceText}.");
+                /**
+                while (oWord.Selection.Find.Execute(ref oFind, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
+                {
+                    oWord.Selection.Text = replaceText;
+                    oWord.Selection.Collapse();
+                }
+    **/
+            }
         }
 
         public void FindLoop(string findText)

@@ -15,6 +15,7 @@ namespace Syllabus_Generator
     public partial class FormName : Form
     {
         private Oword oWord = new Oword("PCOM_T-DACM_Master_Template.dotx", "");
+        private bool isDeveloper = true;
 
         public FormName()
         {
@@ -37,7 +38,7 @@ namespace Syllabus_Generator
         {
             foreach (var textBox in Controls.OfType<GroupBox>().SelectMany(groupBox => groupBox.Controls.OfType<TextBox>()))
             {
-                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, false);
+                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, isDeveloper);
             }
         }
         private void buttonReplace_Click(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace Syllabus_Generator
             string replaceText = "";
             
             replaceText = textReplace.Text;
-            oWord.SearchReplace(findText, replaceText, false);
+            oWord.SearchReplace(findText, replaceText, isDeveloper);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

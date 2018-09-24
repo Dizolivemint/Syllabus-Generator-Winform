@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textCourseDescription.Text" xml:space="preserve">
+    <value>The course will help the student examine the two fundamental aspects of their healthcare career: patient care and practice building. Students will identify areas in which both can be improved and create a program for further development. Along the way, the course will review current considerations in developing a successful practice, e.g. research access, marketing, management systems, etc. On the patient care side, students will present to faculty members and fellow doctoral candidates case work that integrates current research, Chinese medical theory, treatment plans, alternative approaches, biomedical considerations, community resources, and prognosis.</value>
+  </data>
 </root>
