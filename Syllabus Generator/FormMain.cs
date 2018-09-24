@@ -14,7 +14,7 @@ namespace Syllabus_Generator
 {
     public partial class FormName : Form
     {
-        private Oword oWord = new Oword("Template.dotx", "");
+        private Oword oWord = new Oword("PCOM_T-DACM_Master_Template.dotx", "");
 
         public FormName()
         {
@@ -33,10 +33,17 @@ namespace Syllabus_Generator
         }
 
         private void buttonReplace_Click(object sender, EventArgs e)
-        {
-            string findText = textFind.Text;
-            string replaceText = textReplace.Text;
-            oWord.SearchReplace(findText, replaceText, true);
+        {                
+            foreach (var textBox in Controls.OfType<GroupBox>().SelectMany(groupBox => groupBox.Controls.OfType<TextBox>()))
+            {
+                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, true);
+            }
+
+            // string findText = "";
+            // string replaceText = "";
+            
+            // replaceText = textReplace.Text;
+            // oWord.SearchReplace(findText, replaceText, true);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

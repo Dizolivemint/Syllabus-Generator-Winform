@@ -82,28 +82,78 @@ namespace Syllabus_Generator
 
         public void SearchReplace(string findText, string replaceText, bool msg)
         {
+            object replaceAll = Word.WdReplace.wdReplaceAll;
             object oMissing = System.Reflection.Missing.Value;
+
+            // First Header Replacement
+            foreach (Word.Section section in oWordDoc.Sections)
+            {
+                Word.Find findHeader = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterFirstPage].Range.Find;
+
+                findHeader.ClearFormatting();
+                findHeader.Text = findText;
+                findHeader.Replacement.ClearFormatting();
+                findHeader.Replacement.Text = replaceText;
+
+                if (findHeader.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
+                {
+                    if (msg)
+                        MessageBox.Show($"Replaced: {findText} with {replaceText}.");
+                }
+                else
+                {
+                    if (msg)
+                        MessageBox.Show("The text could not be located.");
+                }
+            }
+
+            // All other Header Replacements
+            foreach (Word.Section section in oWordDoc.Sections)
+            {
+                Word.Find findHeader = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range.Find;
+
+                findHeader.ClearFormatting();
+                findHeader.Text = findText;
+                findHeader.Replacement.ClearFormatting();
+                findHeader.Replacement.Text = replaceText;
+
+                if (findHeader.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
+                {
+                    if (msg)
+                        MessageBox.Show($"Replaced: {findText} with {replaceText}.");
+                }
+                else
+                {
+                    if (msg)
+                        MessageBox.Show("The text could not be located.");
+                }
+            }
+
             Word.Find findObject = oWord.Application.Selection.Find;
-            
+
             findObject.ClearFormatting();
             findObject.Text = findText;
             findObject.Replacement.ClearFormatting();
             findObject.Replacement.Text = replaceText;
 
-            object replaceAll = Word.WdReplace.wdReplaceAll;
+            
 
             if (findObject.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                 ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                 ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing))
-            {
+             {
                 if (msg)
                     MessageBox.Show($"Replaced: {findText} with {replaceText}.");
-            }
-            else
-            {
+             }
+             else
+             {
                 if (msg)
-                    MessageBox.Show("The text could not be located.");
-            }
+                   MessageBox.Show("The text could not be located.");
+             }
         }
 
         public void FindLoop(string findText)
@@ -154,9 +204,9 @@ namespace Syllabus_Generator
         {
             SaveFileDialog fdlg = new SaveFileDialog();
 
-            fdlg.Title = "Pick a Template";
+            fdlg.Title = "Destination";
             fdlg.InitialDirectory = this.path;
-            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+            fdlg.Filter = "All files (*.*)|*.*|Docx files (*.docx)|*.docx";
             fdlg.FilterIndex = 2;
             fdlg.RestoreDirectory = true;
             if (fdlg.ShowDialog() == DialogResult.OK)
