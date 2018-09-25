@@ -192,6 +192,7 @@ namespace Syllabus_Generator
             while (rng.Find.Found)
             {
                 intFound++;
+
                 rng.Find.Execute(
                     ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
@@ -249,6 +250,16 @@ namespace Syllabus_Generator
                 return (Object)fdlg.FileName;
             }
             return null;
+        }
+
+        public void AddTable(string findText, int numRows, int numColumns)
+        {
+            Word.Range range = this.oWordDoc.Content;
+
+            range.Find.Execute(findText);
+
+            // Word.Document.Tables.Add(rng, int NumRows, int NumColumns, ref object DefaultTableBehavior, ref object AutoFitBehavior);
+            this.oWordDoc.Tables.Add(range, numRows, numColumns);
         }
     }
 }

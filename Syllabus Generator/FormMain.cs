@@ -41,6 +41,11 @@ namespace Syllabus_Generator
                 oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, isDeveloper);
             }
         }
+
+        private void AddTable()
+        {
+            oWord.AddTable("<tableAssignments>", 3, 3);
+        }
         private void buttonReplace_Click(object sender, EventArgs e)
         {                
             string findText = "";
@@ -53,6 +58,7 @@ namespace Syllabus_Generator
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SearchReplace();
+            AddTable();
 
             textTarget.Text = (String)oWord.SaveFileDialog();
             oWord.fileTarget = textTarget.Text;
