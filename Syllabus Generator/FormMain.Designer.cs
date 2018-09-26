@@ -42,6 +42,9 @@
             this.textTarget = new System.Windows.Forms.TextBox();
             this.labelTarget = new System.Windows.Forms.Label();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.labelSectionNumber = new System.Windows.Forms.Label();
+            this.textSectionNumber = new System.Windows.Forms.TextBox();
+            this.textCourseCode = new System.Windows.Forms.TextBox();
             this.labelTeacherName = new System.Windows.Forms.Label();
             this.textTeacherName = new System.Windows.Forms.TextBox();
             this.labelTeacherEmail = new System.Windows.Forms.Label();
@@ -79,9 +82,6 @@
             this.listBoxTerm = new System.Windows.Forms.ListBox();
             this.groupBoxTerm = new System.Windows.Forms.GroupBox();
             this.buttonOpenTemplate = new System.Windows.Forms.Button();
-            this.textCourseCode = new System.Windows.Forms.TextBox();
-            this.textSectionNumber = new System.Windows.Forms.TextBox();
-            this.labelSectionNumber = new System.Windows.Forms.Label();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxReading.SuspendLayout();
             this.groupBoxFindReplace.SuspendLayout();
@@ -219,6 +219,29 @@
             this.groupBoxInfo.TabIndex = 12;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Basic Information";
+            // 
+            // labelSectionNumber
+            // 
+            this.labelSectionNumber.AutoSize = true;
+            this.labelSectionNumber.Location = new System.Drawing.Point(25, 78);
+            this.labelSectionNumber.Name = "labelSectionNumber";
+            this.labelSectionNumber.Size = new System.Drawing.Size(83, 13);
+            this.labelSectionNumber.TabIndex = 20;
+            this.labelSectionNumber.Text = "Section Number";
+            // 
+            // textSectionNumber
+            // 
+            this.textSectionNumber.Location = new System.Drawing.Point(27, 93);
+            this.textSectionNumber.Name = "textSectionNumber";
+            this.textSectionNumber.Size = new System.Drawing.Size(39, 20);
+            this.textSectionNumber.TabIndex = 19;
+            // 
+            // textCourseCode
+            // 
+            this.textCourseCode.Location = new System.Drawing.Point(27, 45);
+            this.textCourseCode.Name = "textCourseCode";
+            this.textCourseCode.Size = new System.Drawing.Size(236, 20);
+            this.textCourseCode.TabIndex = 18;
             // 
             // labelTeacherName
             // 
@@ -569,29 +592,6 @@
             this.buttonOpenTemplate.Text = "&Open Template";
             this.buttonOpenTemplate.UseVisualStyleBackColor = true;
             this.buttonOpenTemplate.Click += new System.EventHandler(this.buttonOpenTemplate_Click);
-            // 
-            // textCourseCode
-            // 
-            this.textCourseCode.Location = new System.Drawing.Point(27, 45);
-            this.textCourseCode.Name = "textCourseCode";
-            this.textCourseCode.Size = new System.Drawing.Size(236, 20);
-            this.textCourseCode.TabIndex = 18;
-            // 
-            // textSectionNumber
-            // 
-            this.textSectionNumber.Location = new System.Drawing.Point(27, 93);
-            this.textSectionNumber.Name = "textSectionNumber";
-            this.textSectionNumber.Size = new System.Drawing.Size(39, 20);
-            this.textSectionNumber.TabIndex = 19;
-            // 
-            // labelSectionNumber
-            // 
-            this.labelSectionNumber.AutoSize = true;
-            this.labelSectionNumber.Location = new System.Drawing.Point(25, 78);
-            this.labelSectionNumber.Name = "labelSectionNumber";
-            this.labelSectionNumber.Size = new System.Drawing.Size(83, 13);
-            this.labelSectionNumber.TabIndex = 20;
-            this.labelSectionNumber.Text = "Section Number";
             // 
             // FormName
             // 

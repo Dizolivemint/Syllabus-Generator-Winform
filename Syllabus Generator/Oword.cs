@@ -171,7 +171,8 @@ namespace Syllabus_Generator
 
                 range.Text = replaceText;
                 
-                MessageBox.Show($"Replaced: {(String)oFind} with {replaceText}.");
+                if (msg)
+                    MessageBox.Show($"Replaced: {(String)oFind} with {replaceText}.");
             }
         }
 
@@ -260,6 +261,28 @@ namespace Syllabus_Generator
 
             // Word.Document.Tables.Add(rng, int NumRows, int NumColumns, ref object DefaultTableBehavior, ref object AutoFitBehavior);
             this.oWordDoc.Tables.Add(range, numRows, numColumns);
+        }
+
+        public void FillCell(string cellText, int tableNum, int x, int y, int alignment)
+        {
+            Word.Cell cell = this.oWordDoc.Tables[tableNum].Cell(y, x);
+
+            cell.Range.Text = cellText;
+
+            switch (alignment)
+            {
+                case 2:
+                    cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                    break;
+                case 1:
+                    cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                    break;
+                default:
+                    cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                    break;              
+            };
+                
+            cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
         }
     }
 }

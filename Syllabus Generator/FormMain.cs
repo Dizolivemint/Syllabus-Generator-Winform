@@ -16,6 +16,7 @@ namespace Syllabus_Generator
     {
         private Oword oWord = new Oword("PCOM_T-DACM_Master_Template.dotx", "");
         private bool isDeveloper = false;
+        private char splitChar = ',';
 
         public FormName()
         {
@@ -44,8 +45,9 @@ namespace Syllabus_Generator
 
         private void AddTable()
         {
-            oWord.AddTable("<tableAssignments>", 3, 3);
+            oWord.AddTable("<tableAssignments>", listBoxGrid.Items.Count, 3);
         }
+
         private void buttonReplace_Click(object sender, EventArgs e)
         {                
             string findText = "";
@@ -55,11 +57,32 @@ namespace Syllabus_Generator
             oWord.SearchReplace(findText, replaceText, isDeveloper);
         }
 
+        private void FillCells()
+        {
+            string row = "";
+            int y = 0;
+
+            foreach (string item in listBoxGrid.Items)
+            {
+                row = item;
+                y++;
+
+                string[] columns = row.Split(splitChar);
+
+                for (int x = 0; x < columns.Length; x++)
+                {
+                    oWord.FillCell(columns[x], 1, x+1, y, 0);
+                }
+            }
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SearchReplace();
             AddTable();
+            FillCells();
 
+            
             textTarget.Text = (String)oWord.SaveFileDialog();
             oWord.fileTarget = textTarget.Text;
             oWord.SaveAs(oWord.fileTarget);
@@ -81,7 +104,7 @@ namespace Syllabus_Generator
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            listBoxGrid.Items.Add($"{textAssignmentName.Text} {textAssignmentPoints.Text} {textAssignmentDueDate.Text}");
+            listBoxGrid.Items.Add($"{textAssignmentName.Text}{splitChar} {textAssignmentPoints.Text}{splitChar} {textAssignmentDueDate.Text}");
         }
 
         private void buttonBackup_Click(object sender, EventArgs e)
