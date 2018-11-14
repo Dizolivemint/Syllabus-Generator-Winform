@@ -37,8 +37,6 @@ namespace Syllabus_Generator
             // Create object of Word and Document.
             this.oWord = new Word.Application();
             this.oWordDoc = new Word.Document();
-
-            this.OpenTemplate();
         }
 
         private void DefaultValues()
@@ -53,11 +51,12 @@ namespace Syllabus_Generator
             this.oFalse = false;
         }
 
-        private void OpenTemplate()
+        public void OpenTemplate()
         {
 
             // The location of the template file
-            Object oTemplate = (Object)(this.path + $@"{this.fileSource}");
+            // Object oTemplate = (Object)(this.path + $@"{this.fileSource}");
+            Object oTemplate = (Object)(this.fileSource);
 
             // Open the source template
             this.oWordDoc = this.oWord.Documents.Add(ref oTemplate);

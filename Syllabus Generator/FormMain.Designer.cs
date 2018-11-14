@@ -82,6 +82,9 @@
             this.listBoxTerm = new System.Windows.Forms.ListBox();
             this.groupBoxTerm = new System.Windows.Forms.GroupBox();
             this.buttonOpenTemplate = new System.Windows.Forms.Button();
+            this.btnAssignmentGrid = new System.Windows.Forms.Button();
+            this.lblDay = new System.Windows.Forms.Label();
+            this.comboBoxDay = new System.Windows.Forms.ComboBox();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxReading.SuspendLayout();
             this.groupBoxFindReplace.SuspendLayout();
@@ -198,6 +201,8 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.comboBoxDay);
+            this.groupBoxInfo.Controls.Add(this.lblDay);
             this.groupBoxInfo.Controls.Add(this.labelSectionNumber);
             this.groupBoxInfo.Controls.Add(this.textSectionNumber);
             this.groupBoxInfo.Controls.Add(this.textCourseCode);
@@ -440,6 +445,7 @@
             this.buttonRemove.TabIndex = 10;
             this.buttonRemove.Text = "&Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // buttonUpdate
             // 
@@ -449,6 +455,7 @@
             this.buttonUpdate.TabIndex = 9;
             this.buttonUpdate.Text = "&Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonAdd
             // 
@@ -593,11 +600,39 @@
             this.buttonOpenTemplate.UseVisualStyleBackColor = true;
             this.buttonOpenTemplate.Click += new System.EventHandler(this.buttonOpenTemplate_Click);
             // 
+            // btnAssignmentGrid
+            // 
+            this.btnAssignmentGrid.Location = new System.Drawing.Point(182, 34);
+            this.btnAssignmentGrid.Name = "btnAssignmentGrid";
+            this.btnAssignmentGrid.Size = new System.Drawing.Size(181, 34);
+            this.btnAssignmentGrid.TabIndex = 25;
+            this.btnAssignmentGrid.Text = "Assignment &Grid";
+            this.btnAssignmentGrid.UseVisualStyleBackColor = true;
+            this.btnAssignmentGrid.Click += new System.EventHandler(this.btnAssignmentGrid_Click);
+            // 
+            // lblDay
+            // 
+            this.lblDay.AutoSize = true;
+            this.lblDay.Location = new System.Drawing.Point(25, 427);
+            this.lblDay.Name = "lblDay";
+            this.lblDay.Size = new System.Drawing.Size(70, 13);
+            this.lblDay.TabIndex = 21;
+            this.lblDay.Text = "Day of Week";
+            // 
+            // comboBoxDay
+            // 
+            this.comboBoxDay.FormattingEnabled = true;
+            this.comboBoxDay.Location = new System.Drawing.Point(27, 443);
+            this.comboBoxDay.Name = "comboBoxDay";
+            this.comboBoxDay.Size = new System.Drawing.Size(53, 21);
+            this.comboBoxDay.TabIndex = 23;
+            // 
             // FormName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 630);
+            this.Controls.Add(this.btnAssignmentGrid);
             this.Controls.Add(this.buttonOpenTemplate);
             this.Controls.Add(this.groupBoxTerm);
             this.Controls.Add(this.groupBoxCourseDescription);
@@ -682,6 +717,9 @@
         private System.Windows.Forms.Label labelSectionNumber;
         private System.Windows.Forms.TextBox textSectionNumber;
         private System.Windows.Forms.TextBox textCourseCode;
+        private System.Windows.Forms.Button btnAssignmentGrid;
+        private System.Windows.Forms.Label lblDay;
+        private System.Windows.Forms.ComboBox comboBoxDay;
     }
 }
 

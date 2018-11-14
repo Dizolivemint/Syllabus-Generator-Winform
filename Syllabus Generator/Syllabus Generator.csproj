@@ -53,6 +53,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment.cs" />
+    <Compile Include="FormAssignmentGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAssignmentGrid.Designer.cs">
+      <DependentUpon>FormAssignmentGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGradebook.cs">
       <SubType>Form</SubType>
     </Compile>
