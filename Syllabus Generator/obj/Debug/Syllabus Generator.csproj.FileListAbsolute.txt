@@ -26,3 +26,6 @@ C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\De
 C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.CopyComplete
 C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.exe
 C:\Users\flyin\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.pdb
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormAssignmentGrid.resources
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormFindReplace.resources
+C:\Users\Miles Exner\source\repos\Syllabus Generator\Syllabus Generator\obj\Debug\Syllabus_Generator.FormInformation.resources

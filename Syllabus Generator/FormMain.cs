@@ -14,7 +14,7 @@ namespace Syllabus_Generator
 {
     public partial class FormName : Form
     {
-        private Oword oWord = new Oword("PCOM_T-DACM_Master_Template.dotx", "");
+                private Oword oWord = new Oword("PCOM_T-DACM_Master_Template.dotx", "");
         private bool isDeveloper = false;
         private char splitChar = ',';
 
@@ -31,8 +31,9 @@ namespace Syllabus_Generator
 
         private void formName_Load(object sender, EventArgs e)
         {
-            textRequiredTexts.Text = "There are no required texts for this course.";
-            textOptionalTexts.Text = "You will be required to read online materials and any assigned articles.";
+            // Set days dynamically days = 
+
+            // Populate days
             for (int i = 0; i <= 7; i++)
             {
                 comboBoxDay.Items.Add(i);
@@ -59,15 +60,6 @@ namespace Syllabus_Generator
         private void AddTable()
         {
             oWord.AddTable("<tableAssignments>", listBoxGrid.Items.Count, 3);
-        }
-
-        private void buttonReplace_Click(object sender, EventArgs e)
-        {                
-            string findText = "";
-            string replaceText = "";
-            
-            replaceText = textReplace.Text;
-            oWord.SearchReplace(findText, replaceText, isDeveloper);
         }
 
         private void FillCells()
@@ -101,14 +93,7 @@ namespace Syllabus_Generator
             oWord.SaveAs(oWord.fileTarget);
         }
 
-        private void textFind_TextChanged(object sender, EventArgs e)
-        {
-            if (textFind.Text == "")
-                buttonReplace.Enabled = false;
-            else
-                buttonReplace.Enabled = true;
-
-        }
+        
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -137,35 +122,15 @@ namespace Syllabus_Generator
         private void btnAssignmentGrid_Click(object sender, EventArgs e)
         {
             Form FormAssignmentGrid = new FormAssignmentGrid();
-            FormAssignmentGrid.Tag = new Assignment(0, "", "", 0, formatDate("11/14/2018", 0));
-            Assignment assignment = new Assignment(0, "", "", 0, formatDate("11/14/2018", 0));
+            FormAssignmentGrid.Tag = new Assignment(0, "", "", 0, "11/14/2018");
+            Assignment assignment = new Assignment(0, "", "", 0, "11/14/2018");
             DialogResult selectedButton = FormAssignmentGrid.ShowDialog();
             if (selectedButton == DialogResult.OK)
             {
                 assignment = FormAssignmentGrid.Tag as Assignment;
             }
         }
-        private DateTime formatDate(string date, int days)
-        {
-            DateTime dateTime;
-            DateTime defaultDate = DateTime.Today.AddDays(days);
-
-            if (DateTime.TryParse(date, out dateTime))
-            {
-                if (dateTime < DateTime.Today)
-                {
-                    MessageBox.Show("Date must be the same or later than today", "Date before today");
-                    return defaultDate;
-                }
-                return dateTime;
-            }
-            else
-            {
-                MessageBox.Show("Please format the date as given", "Format Error");
-                return defaultDate;
-            }
-        }
-
+        
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             try
@@ -192,7 +157,7 @@ namespace Syllabus_Generator
             try
             {
                 listBoxGrid.Items.RemoveAt(selectedIndex);
-                listBoxGrid.Items.Insert(selectedIndex, $"{textAssignmentName.Text}{splitChar} {textAssignmentPoints.Text}{splitChar} {textAssignmentDueDate.Text}");
+                listBoxGrid.Items.Insert(selectedIndex, $"{textAssignmentDueDate.Text}");
             }
             catch
             {

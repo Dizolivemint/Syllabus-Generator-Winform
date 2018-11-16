@@ -60,11 +60,23 @@
     <Compile Include="FormAssignmentGrid.Designer.cs">
       <DependentUpon>FormAssignmentGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFindReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFindReplace.Designer.cs">
+      <DependentUpon>FormFindReplace.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGradebook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGradebook.Designer.cs">
       <DependentUpon>FormGradebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformation.Designer.cs">
+      <DependentUpon>FormInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTopic.cs">
       <SubType>Form</SubType>
@@ -81,8 +93,17 @@
     <Compile Include="Oword.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAssignmentGrid.resx">
+      <DependentUpon>FormAssignmentGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFindReplace.resx">
+      <DependentUpon>FormFindReplace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGradebook.resx">
       <DependentUpon>FormGradebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformation.resx">
+      <DependentUpon>FormInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTopic.resx">
       <DependentUpon>FormTopic.cs</DependentUpon>
