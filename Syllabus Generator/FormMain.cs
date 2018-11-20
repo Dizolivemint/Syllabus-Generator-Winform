@@ -32,11 +32,12 @@ namespace Syllabus_Generator
         private void formName_Load(object sender, EventArgs e)
         {
             // Set days dynamically days = 
+            DateTime daySelect = DateTime.Parse("12/31/18");
 
             // Populate days
-            for (int i = 0; i <= 7; i++)
+            for (int i = 0; i < 7; i++)
             {
-                comboBoxDay.Items.Add(i);
+                comboBoxDay.Items.Add(daySelect.AddDays(i).Date.ToString("ddd"));
             }
         }
 
@@ -162,6 +163,26 @@ namespace Syllabus_Generator
             catch
             {
                 return;
+            }
+        }
+
+        private void buttonTermAdd_Click(object sender, EventArgs e)
+        {
+            Form FormTerm = new FormTerm();
+
+            FormTerm.Tag = new List<string>();
+            List<string> listWeeks = new List<string>();
+
+            DialogResult selectedButton = FormTerm.ShowDialog();
+
+            if (selectedButton == DialogResult.OK)
+            {
+                listWeeks = FormTerm.Tag as List<string>;
+                foreach (string week in listWeeks)
+                {
+                    comboBoxDueWeek.Items.Add(week);
+                }
+                
             }
         }
     }

@@ -78,6 +78,12 @@
     <Compile Include="FormInformation.Designer.cs">
       <DependentUpon>FormInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTerm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTerm.Designer.cs">
+      <DependentUpon>FormTerm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTopic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInformation.resx">
       <DependentUpon>FormInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTerm.resx">
+      <DependentUpon>FormTerm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTopic.resx">
       <DependentUpon>FormTopic.cs</DependentUpon>

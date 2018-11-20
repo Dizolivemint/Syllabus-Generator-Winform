@@ -21,7 +21,7 @@ namespace Syllabus_Generator
             this._title = _title;
             this._description = _description;
             this._points = _points;
-            this._dueDate = _dueDate;
+            this._dueDate = this.formatDate(_dueDate);
         }
 
         public int id
@@ -58,8 +58,10 @@ namespace Syllabus_Generator
         {
             DateTime dateTime = formatDate(date);
 
-            Console.WriteLine($"Day of week ${dateTime.DayOfWeek}");
-                    }
+            Console.WriteLine($"Day of week c{dateTime.DayOfWeek}");
+
+            return dateTime;
+        }
 
         private DateTime formatDate(string date)
         {
@@ -68,11 +70,6 @@ namespace Syllabus_Generator
 
             if (DateTime.TryParse(date, out dateTime))
             {
-                if (dateTime < DateTime.Today)
-                {
-                    MessageBox.Show("Date must be the same or later than today", "Date before today");
-                    return defaultDate;
-                }
                 return dateTime;
             }
             else
@@ -82,32 +79,9 @@ namespace Syllabus_Generator
             }
         }
 
-        private int calcNumDays(DateTime dateStart, DateTime dateEnd, int maxYears)
+        private double calcNumDays(DateTime dateStart, DateTime dateEnd, int maxYears)
         {
-            int yearStart = dateStart.Year;
-            int yearEnd = dateEnd.Year;
-
-            int dayStart = dateStart.Day;
-            int dayEnd = dateEnd.Day;
-
-            int numDays = 0;
-
-            int years = yearEnd - yearStart;
-
-            numDays = dayEnd - dayStart;
-            numDays += years * 365;
-
-            if (dayEnd <= dayStart)
-            {
-                years--;
-            }
-
-            if (years < maxYears)
-            {
-                return numDays;
-            }
-
-            return -1;
+            return (dateEnd - dateStart).TotalDays;
         }
     }
 }
