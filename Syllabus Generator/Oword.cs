@@ -59,6 +59,7 @@ namespace Syllabus_Generator
             Object oTemplate = (Object)(this.fileSource);
 
             // Open the source template
+
             this.oWordDoc = this.oWord.Documents.Add(ref oTemplate);
 
             if (this.fileTarget == "")
@@ -85,7 +86,6 @@ namespace Syllabus_Generator
             object oMissing = System.Reflection.Missing.Value;
 
             Object oFind = (object)findText;
-            Word.Find findObject = oWord.Application.Selection.Find;
 
             // First Header Replacement
             foreach (Word.Section section in oWordDoc.Sections)
@@ -146,6 +146,8 @@ namespace Syllabus_Generator
                     }
                 }   
             }
+
+            Word.Find findObject = oWord.Application.Selection.Find;
 
             findObject.ClearFormatting();
             findObject.Text = findText;
@@ -212,7 +214,14 @@ namespace Syllabus_Generator
         public void Close()
         {
             // Close the file.
-            oWordDoc.Close();
+            try
+            {
+                oWordDoc.Close();
+            }
+            catch (Exception)
+            {
+
+            }    
 
             // Quit Word.exe
             oWord.Quit();
