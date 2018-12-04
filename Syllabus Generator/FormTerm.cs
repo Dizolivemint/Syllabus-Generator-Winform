@@ -29,13 +29,15 @@ namespace Syllabus_Generator
             for (int i = 0; i < numWeeks; i++)
             {
                 dayMute = dayStart.AddDays(i * 7);
-                listBoxTerm.Items.Add($"Week {i + 1}: {dayMute.Month}/{dayMute.Day}");
+                listBoxTerm.Items.Add($"{i + 1}: {dayMute.Month}/{dayMute.Day}");
             }
             
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            listBoxTerm.Items.Add(textBoxTermName.Text);
+
             this.Tag = listBoxTerm.Items.Cast<string>().ToList();
             this.Close();
         }
