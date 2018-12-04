@@ -47,3 +47,5 @@ C:\Users\mexner\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\D
 C:\Users\mexner\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Syllabus Generator.pdb
 C:\Users\mexner\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Xceed.Words.NET.dll
 C:\Users\mexner\source\repos\Syllabus-Generator-Winform\Syllabus Generator\obj\Debug\Syllabus Generator.csproj.CopyComplete
+C:\Users\mexner\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mexner\source\repos\Syllabus-Generator-Winform\Syllabus Generator\bin\Debug\Newtonsoft.Json.xml

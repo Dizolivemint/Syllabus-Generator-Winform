@@ -41,23 +41,6 @@ namespace Syllabus_Generator
             }
         }
 
-        private void SearchReplace()
-        {
-            foreach (var textBox in Controls.OfType<GroupBox>().SelectMany(groupBox => groupBox.Controls.OfType<TextBox>()))
-            {
-                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, isDeveloper);
-            }
-
-            
-            int i = 0;
-            foreach (var item in listBoxGrid.Items)
-            {
-                i++;
-                oWord.SearchReplace($"<dueDateID{i}>", item.ToString(), isDeveloper);
-            }
-            
-        }
-
         private void AddTable()
         {
             oWord.AddTable("<tableAssignments>", listBoxGrid.Items.Count, 3);
@@ -92,9 +75,35 @@ namespace Syllabus_Generator
             textTarget.Text = (String)oWord.SaveFileDialog();
             oWord.fileTarget = textTarget.Text;
             oWord.SaveAs(oWord.fileTarget);
+            oWord.Close();
         }
 
-        
+        private void SearchReplace()
+        {
+            foreach (var textBox in Controls.OfType<GroupBox>().SelectMany(groupBox => groupBox.Controls.OfType<TextBox>()))
+            {
+                oWord.SearchReplace($"<{textBox.Name}>", textBox.Text, isDeveloper);
+            }
+
+
+            int i = 0;
+            foreach (var item in listBoxGrid.Items)
+            {
+                i++;
+                oWord.SearchReplace($"<dueDateID{i}>", item.ToString(), isDeveloper);
+            }
+
+        }
+
+        private void buttonBackup_Click(object sender, EventArgs e)
+        {
+            List<Assignment> assignments = new List<Assignment>();
+            foreach (string item in listBoxGrid.Items)
+            {
+                assignments.Add(new Assignment(item));
+                Djson backup = new Djson(new Assignment(item));
+            }
+        }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -109,11 +118,6 @@ namespace Syllabus_Generator
             listBoxGrid.Items.Add(textAssignmentDueDate.Text);
         }
 
-        private void buttonBackup_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonOpenTemplate_Click(object sender, EventArgs e)
         {
             oWord.fileSource = (String)oWord.OpenFileDialog();
@@ -123,8 +127,8 @@ namespace Syllabus_Generator
         private void btnAssignmentGrid_Click(object sender, EventArgs e)
         {
             Form FormAssignmentGrid = new FormAssignmentGrid();
-            FormAssignmentGrid.Tag = new Assignment(0, "", "", 0, "11/14/2018");
-            Assignment assignment = new Assignment(0, "", "", 0, "11/14/2018");
+            FormAssignmentGrid.Tag = new Assignment("11/14/2018");
+            Assignment assignment = new Assignment("11/14/2018");
             DialogResult selectedButton = FormAssignmentGrid.ShowDialog();
             if (selectedButton == DialogResult.OK)
             {
@@ -178,12 +182,29 @@ namespace Syllabus_Generator
             if (selectedButton == DialogResult.OK)
             {
                 listWeeks = FormTerm.Tag as List<string>;
+                listBoxTerm.Items.Add(listWeeks[listWeeks.Count - 1]);
+                listWeeks.RemoveAt(listWeeks.Count - 1);
                 foreach (string week in listWeeks)
                 {
                     comboBoxDueWeek.Items.Add(week);
                 }
                 
             }
+        }
+
+        private void textSectionNumber_TextChanged(object sender, EventArgs e)
+        {
+            generateShortName();
+        }
+
+        private void generateShortName()
+        {
+            textShortName.Text = $"{textCourseCode.Text}.{textSectionNumber.Text}";
+        }
+
+        private void textCourseCode_TextChanged(object sender, EventArgs e)
+        {
+            generateShortName();
         }
     }
 }

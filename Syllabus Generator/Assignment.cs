@@ -15,12 +15,14 @@ namespace Syllabus_Generator
         private int _points;
         private DateTime _dueDate;
 
-        public Assignment(int _id, string _title, string _description, int _points, string _dueDate)
+        public Assignment(string _dueDate)
         {
+            /*
             this._id = _id;
             this._title = _title;
             this._description = _description;
             this._points = _points;
+            */
             this._dueDate = this.formatDate(_dueDate);
         }
 
