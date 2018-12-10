@@ -235,7 +235,7 @@ namespace Syllabus_Generator
 
             fdlg.Title = "Destination";
             fdlg.InitialDirectory = this.path;
-            fdlg.Filter = "All files (*.*)|*.*||Text Backup (*.txt)|*.txt||Docx files (*.docx)|*.docx";
+            fdlg.Filter = "All files (*.*)|*.*||Docx files (*.docx)|*.docx";
             fdlg.FilterIndex = 3;
             fdlg.RestoreDirectory = true;
             if (fdlg.ShowDialog() == DialogResult.OK)

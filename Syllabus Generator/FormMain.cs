@@ -101,7 +101,8 @@ namespace Syllabus_Generator
             foreach (string item in listBoxGrid.Items)
             {
                 assignments.Add(new Assignment(item));
-                Djson backup = new Djson(new Assignment(item));
+                Djson backup = new Djson();
+                backup.Save(new Assignment(item), null);
             }
         }
 
@@ -205,6 +206,15 @@ namespace Syllabus_Generator
         private void textCourseCode_TextChanged(object sender, EventArgs e)
         {
             generateShortName();
+        }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            Djson djOpen = new Djson();
+
+            Term term = (Term)djOpen.ReadTermFile("term.json");
+            listBoxTerm.Items.Clear();
+            listBoxTerm.Items.Add(term.Title);
         }
     }
 }

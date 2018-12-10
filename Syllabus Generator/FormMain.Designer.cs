@@ -34,6 +34,7 @@
             this.textTarget = new System.Windows.Forms.TextBox();
             this.labelTarget = new System.Windows.Forms.Label();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.labelDate = new System.Windows.Forms.Label();
             this.textClassTime = new System.Windows.Forms.TextBox();
             this.labelClassTime = new System.Windows.Forms.Label();
             this.textClassDayOfWeek = new System.Windows.Forms.TextBox();
@@ -52,6 +53,13 @@
             this.buttonImport = new System.Windows.Forms.Button();
             this.buttonBackup = new System.Windows.Forms.Button();
             this.groupBoxGrid = new System.Windows.Forms.GroupBox();
+            this.buttonDuePlus = new System.Windows.Forms.Button();
+            this.buttonDueDayOfClass = new System.Windows.Forms.Button();
+            this.buttonDueMinus = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelDueDay = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelTime = new System.Windows.Forms.Label();
             this.comboBoxDueWeek = new System.Windows.Forms.ComboBox();
             this.labelDueWeek = new System.Windows.Forms.Label();
             this.buttonRemove = new System.Windows.Forms.Button();
@@ -66,14 +74,6 @@
             this.groupBoxTerm = new System.Windows.Forms.GroupBox();
             this.buttonOpenTemplate = new System.Windows.Forms.Button();
             this.btnAssignmentGrid = new System.Windows.Forms.Button();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelDueDay = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.buttonDueMinus = new System.Windows.Forms.Button();
-            this.buttonDueDayOfClass = new System.Windows.Forms.Button();
-            this.buttonDuePlus = new System.Windows.Forms.Button();
-            this.labelDate = new System.Windows.Forms.Label();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxFile.SuspendLayout();
             this.groupBoxGrid.SuspendLayout();
@@ -156,6 +156,15 @@
             this.groupBoxInfo.TabIndex = 12;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Basic Information";
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Location = new System.Drawing.Point(40, 510);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(44, 20);
+            this.labelDate.TabIndex = 27;
+            this.labelDate.Text = "Date";
             // 
             // textClassTime
             // 
@@ -306,6 +315,7 @@
             this.buttonImport.TabIndex = 17;
             this.buttonImport.Text = "&Import";
             this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // buttonBackup
             // 
@@ -343,6 +353,66 @@
             this.groupBoxGrid.TabIndex = 18;
             this.groupBoxGrid.TabStop = false;
             this.groupBoxGrid.Text = "Due Dates";
+            // 
+            // buttonDuePlus
+            // 
+            this.buttonDuePlus.Location = new System.Drawing.Point(229, 90);
+            this.buttonDuePlus.Name = "buttonDuePlus";
+            this.buttonDuePlus.Size = new System.Drawing.Size(33, 38);
+            this.buttonDuePlus.TabIndex = 19;
+            this.buttonDuePlus.Text = "+";
+            this.buttonDuePlus.UseVisualStyleBackColor = true;
+            // 
+            // buttonDueDayOfClass
+            // 
+            this.buttonDueDayOfClass.Location = new System.Drawing.Point(81, 90);
+            this.buttonDueDayOfClass.Name = "buttonDueDayOfClass";
+            this.buttonDueDayOfClass.Size = new System.Drawing.Size(134, 38);
+            this.buttonDueDayOfClass.TabIndex = 18;
+            this.buttonDueDayOfClass.Text = "Day of Class";
+            this.buttonDueDayOfClass.UseVisualStyleBackColor = true;
+            // 
+            // buttonDueMinus
+            // 
+            this.buttonDueMinus.Location = new System.Drawing.Point(28, 90);
+            this.buttonDueMinus.Name = "buttonDueMinus";
+            this.buttonDueMinus.Size = new System.Drawing.Size(39, 38);
+            this.buttonDueMinus.TabIndex = 17;
+            this.buttonDueMinus.Text = "-";
+            this.buttonDueMinus.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(212, 45);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(50, 28);
+            this.comboBox1.TabIndex = 16;
+            // 
+            // labelDueDay
+            // 
+            this.labelDueDay.AutoSize = true;
+            this.labelDueDay.Location = new System.Drawing.Point(169, 53);
+            this.labelDueDay.Name = "labelDueDay";
+            this.labelDueDay.Size = new System.Drawing.Size(37, 20);
+            this.labelDueDay.TabIndex = 15;
+            this.labelDueDay.Text = "Day";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(28, 162);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(99, 26);
+            this.textBox1.TabIndex = 14;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(24, 139);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(43, 20);
+            this.labelTime.TabIndex = 13;
+            this.labelTime.Text = "Time";
             // 
             // comboBoxDueWeek
             // 
@@ -489,75 +559,6 @@
             this.btnAssignmentGrid.Text = "Assignment &Grid";
             this.btnAssignmentGrid.UseVisualStyleBackColor = true;
             this.btnAssignmentGrid.Click += new System.EventHandler(this.btnAssignmentGrid_Click);
-            // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(24, 139);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(43, 20);
-            this.labelTime.TabIndex = 13;
-            this.labelTime.Text = "Time";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(28, 162);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(99, 26);
-            this.textBox1.TabIndex = 14;
-            // 
-            // labelDueDay
-            // 
-            this.labelDueDay.AutoSize = true;
-            this.labelDueDay.Location = new System.Drawing.Point(169, 53);
-            this.labelDueDay.Name = "labelDueDay";
-            this.labelDueDay.Size = new System.Drawing.Size(37, 20);
-            this.labelDueDay.TabIndex = 15;
-            this.labelDueDay.Text = "Day";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(212, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(50, 28);
-            this.comboBox1.TabIndex = 16;
-            // 
-            // buttonDueMinus
-            // 
-            this.buttonDueMinus.Location = new System.Drawing.Point(28, 90);
-            this.buttonDueMinus.Name = "buttonDueMinus";
-            this.buttonDueMinus.Size = new System.Drawing.Size(39, 38);
-            this.buttonDueMinus.TabIndex = 17;
-            this.buttonDueMinus.Text = "-";
-            this.buttonDueMinus.UseVisualStyleBackColor = true;
-            // 
-            // buttonDueDayOfClass
-            // 
-            this.buttonDueDayOfClass.Location = new System.Drawing.Point(81, 90);
-            this.buttonDueDayOfClass.Name = "buttonDueDayOfClass";
-            this.buttonDueDayOfClass.Size = new System.Drawing.Size(134, 38);
-            this.buttonDueDayOfClass.TabIndex = 18;
-            this.buttonDueDayOfClass.Text = "Day of Class";
-            this.buttonDueDayOfClass.UseVisualStyleBackColor = true;
-            // 
-            // buttonDuePlus
-            // 
-            this.buttonDuePlus.Location = new System.Drawing.Point(229, 90);
-            this.buttonDuePlus.Name = "buttonDuePlus";
-            this.buttonDuePlus.Size = new System.Drawing.Size(33, 38);
-            this.buttonDuePlus.TabIndex = 19;
-            this.buttonDuePlus.Text = "+";
-            this.buttonDuePlus.UseVisualStyleBackColor = true;
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(40, 510);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(44, 20);
-            this.labelDate.TabIndex = 27;
-            this.labelDate.Text = "Date";
             // 
             // FormName
             // 

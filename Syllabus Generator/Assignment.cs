@@ -9,52 +9,18 @@ namespace Syllabus_Generator
 {
     class Assignment
     {
-        private int _id;
-        private string _title;
-        private string _description;
-        private int _points;
-        private DateTime _dueDate;
-
         public Assignment(string _dueDate)
         {
-            /*
-            this._id = _id;
-            this._title = _title;
-            this._description = _description;
-            this._points = _points;
-            */
-            this._dueDate = this.formatDate(_dueDate);
+            this.DueDate = this.formatDate(_dueDate);
         }
 
-        public int id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        public string Title { get; set; }
 
-        public string title
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
+        public string Description { get; set; }
 
-        public string description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
+        public int Points { get; set; }
 
-        public int points
-        {
-            get { return _points; }
-            set { _points = value; }
-        }
-
-        public DateTime dueDate
-        {
-            get { return _dueDate; }
-            set { _dueDate = value; }
-        }
+        public DateTime DueDate { get; set; }
 
         public DateTime incrementDate(string date)
         {

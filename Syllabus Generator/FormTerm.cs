@@ -12,6 +12,7 @@ namespace Syllabus_Generator
 {
     public partial class FormTerm : Form
     {
+        Term term;
         public FormTerm()
         {
             InitializeComponent();
@@ -21,25 +22,45 @@ namespace Syllabus_Generator
         {
             DateTime dayStart = monthCalendarTermStart.SelectionStart.Date;
             DateTime dayEnd = monthCalendarTermEnd.SelectionStart.Date;
-            DateTime dayMute = new DateTime();
+            DateTime dayMute = new DateTime(); 
 
-            double numDays = (dayEnd - dayStart).TotalDays;
-            int numWeeks = 1 + ((int)numDays / 7);
+            term = new Term(textBoxTermName.Text, dayStart, dayEnd);
 
-            for (int i = 0; i < numWeeks; i++)
+            for (int i = 0; i < term.Weeks; i++)
             {
                 dayMute = dayStart.AddDays(i * 7);
                 listBoxTerm.Items.Add($"{i + 1}: {dayMute.Month}/{dayMute.Day}");
             }
-            
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            listBoxTerm.Items.Add(textBoxTermName.Text);
+            if (listBoxTerm.Items.Count > 0 && textBoxTermName.Text != "")
+            {
+                listBoxTerm.Items.Add(textBoxTermName.Text);
+                this.Tag = listBoxTerm.Items.Cast<string>().ToList();
+                Djson djsonTerm = new Djson();
+                djsonTerm.Save(term, "term.json");
+            }
+                
 
-            this.Tag = listBoxTerm.Items.Cast<string>().ToList();
+            
+
             this.Close();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listBoxTerm.Items.Clear();
+                textBoxTermName.Text = "";
+                
+            }
+            catch
+            {
+
+            }
         }
     }
 }
