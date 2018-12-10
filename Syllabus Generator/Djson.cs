@@ -12,20 +12,22 @@ namespace Syllabus_Generator
     {
         private object _data;
         private string _json;
-        private string _dir;
+        private string _dir = AppDomain.CurrentDomain.BaseDirectory;
         private string _path;
 
         private FileStream fs;
         private StreamWriter textOut;
         private StreamReader textIn;
 
-        public Djson (object _data)
-        {
-            this._data = _data;
+        public void Save (object _data, string _fileName)
+        {         
             
-            _dir = AppDomain.CurrentDomain.BaseDirectory;
 
-            _path = $"{_dir}\\db.json";
+            if (_fileName == null)
+                _fileName = "db.json";
+            _path = $"{_dir}\\{_fileName}";
+            
+            this._data = _data;
             _json = JsonConvert.SerializeObject(_data);
 
             CreateFile();
@@ -34,17 +36,22 @@ namespace Syllabus_Generator
         }
 
 
-        private object ReadJsonFile(string fileName, object Data)
+        public object ReadTermFile(string _fileName)
         {
 
-            string output = "";
+            if (_fileName == null)
+                _fileName = "db.json";
+            _path = $"{_dir}\\{_fileName}";
 
-            return JsonConvert.DeserializeObject<object>(output);
-        }
+            textIn =
+                new StreamReader(
+                    new FileStream(this._path, FileMode.OpenOrCreate, FileAccess.Read));
 
-        public string path
-        {
-            get { return _path; }
+            string text = textIn.ReadToEnd();
+
+            textIn.Close();
+
+            return JsonConvert.DeserializeObject<Term>(text);
         }
 
         public bool FileDoesExist()
