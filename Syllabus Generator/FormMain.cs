@@ -212,9 +212,10 @@ namespace Syllabus_Generator
         {
             Djson djOpen = new Djson();
 
-            Term term = (Term)djOpen.ReadTermFile("term.json");
+            List<Term> terms = (List<Term>)djOpen.ReadTermFile("term.json");
+
             listBoxTerm.Items.Clear();
-            listBoxTerm.Items.Add(term.Title);
+            listBoxTerm.Items.Add(terms[0].Title);
         }
     }
 }

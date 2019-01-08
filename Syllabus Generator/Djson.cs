@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -51,7 +52,7 @@ namespace Syllabus_Generator
 
             textIn.Close();
 
-            return JsonConvert.DeserializeObject<Term>(text);
+            return JsonConvert.DeserializeObject<List<Term>>(text);
         }
 
         public bool FileDoesExist()

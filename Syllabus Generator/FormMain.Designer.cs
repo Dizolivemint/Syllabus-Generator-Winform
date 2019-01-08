@@ -420,7 +420,7 @@
             this.comboBoxDueWeek.Location = new System.Drawing.Point(81, 45);
             this.comboBoxDueWeek.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxDueWeek.Name = "comboBoxDueWeek";
-            this.comboBoxDueWeek.Size = new System.Drawing.Size(46, 28);
+            this.comboBoxDueWeek.Size = new System.Drawing.Size(72, 28);
             this.comboBoxDueWeek.TabIndex = 8;
             // 
             // labelDueWeek
