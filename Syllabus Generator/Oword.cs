@@ -37,8 +37,6 @@ namespace Syllabus_Generator
             // Create object of Word and Document.
             this.oWord = new Word.Application();
             this.oWordDoc = new Word.Document();
-
-            this.OpenTemplate();
         }
 
         private void DefaultValues()
@@ -53,13 +51,15 @@ namespace Syllabus_Generator
             this.oFalse = false;
         }
 
-        private void OpenTemplate()
+        public void OpenTemplate()
         {
 
             // The location of the template file
-            Object oTemplate = (Object)(this.path + $@"{this.fileSource}");
+            // Object oTemplate = (Object)(this.path + $@"{this.fileSource}");
+            Object oTemplate = (Object)(this.fileSource);
 
             // Open the source template
+
             this.oWordDoc = this.oWord.Documents.Add(ref oTemplate);
 
             if (this.fileTarget == "")
@@ -86,7 +86,6 @@ namespace Syllabus_Generator
             object oMissing = System.Reflection.Missing.Value;
 
             Object oFind = (object)findText;
-            Word.Find findObject = oWord.Application.Selection.Find;
 
             // First Header Replacement
             foreach (Word.Section section in oWordDoc.Sections)
@@ -147,6 +146,8 @@ namespace Syllabus_Generator
                     }
                 }   
             }
+
+            Word.Find findObject = oWord.Application.Selection.Find;
 
             findObject.ClearFormatting();
             findObject.Text = findText;
@@ -213,7 +214,14 @@ namespace Syllabus_Generator
         public void Close()
         {
             // Close the file.
-            oWordDoc.Close();
+            try
+            {
+                oWordDoc.Close();
+            }
+            catch (Exception)
+            {
+
+            }    
 
             // Quit Word.exe
             oWord.Quit();
@@ -227,7 +235,7 @@ namespace Syllabus_Generator
 
             fdlg.Title = "Destination";
             fdlg.InitialDirectory = this.path;
-            fdlg.Filter = "All files (*.*)|*.*||Text Backup (*.txt)|*.txt||Docx files (*.docx)|*.docx";
+            fdlg.Filter = "All files (*.*)|*.*||Docx files (*.docx)|*.docx";
             fdlg.FilterIndex = 3;
             fdlg.RestoreDirectory = true;
             if (fdlg.ShowDialog() == DialogResult.OK)

@@ -1,0 +1,121 @@
+[1mdiff --git a/Syllabus Generator/Djson.cs b/Syllabus Generator/Djson.cs[m
+[1mindex c911529..3848074 100644[m
+[1m--- a/Syllabus Generator/Djson.cs[m	
+[1m+++ b/Syllabus Generator/Djson.cs[m	
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using Newtonsoft.Json;[m
+[32m+[m[32m﻿[m
+[32m+[m[32musing Newtonsoft.Json;[m
+ using System;[m
+ using System.Collections.Generic;[m
+ using System.IO;[m
+[36m@@ -51,7 +52,7 @@[m [mnamespace Syllabus_Generator[m
+ [m
+             textIn.Close();[m
+ [m
+[31m-            return JsonConvert.DeserializeObject<Term>(text);[m
+[32m+[m[32m            return JsonConvert.DeserializeObject<List<Term>>(text);[m
+         }[m
+ [m
+         public bool FileDoesExist()[m
+[1mdiff --git a/Syllabus Generator/FormMain.Designer.cs b/Syllabus Generator/FormMain.Designer.cs[m
+[1mindex 699a374..57c8ac3 100644[m
+[1m--- a/Syllabus Generator/FormMain.Designer.cs[m	
+[1m+++ b/Syllabus Generator/FormMain.Designer.cs[m	
+[36m@@ -420,7 +420,7 @@[m
+             this.comboBoxDueWeek.Location = new System.Drawing.Point(81, 45);[m
+             this.comboBoxDueWeek.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);[m
+             this.comboBoxDueWeek.Name = "comboBoxDueWeek";[m
+[31m-            this.comboBoxDueWeek.Size = new System.Drawing.Size(46, 28);[m
+[32m+[m[32m            this.comboBoxDueWeek.Size = new System.Drawing.Size(72, 28);[m
+             this.comboBoxDueWeek.TabIndex = 8;[m
+             // [m
+             // labelDueWeek[m
+[1mdiff --git a/Syllabus Generator/FormMain.cs b/Syllabus Generator/FormMain.cs[m
+[1mindex 22fbe61..ba2aef7 100644[m
+[1m--- a/Syllabus Generator/FormMain.cs[m	
+[1m+++ b/Syllabus Generator/FormMain.cs[m	
+[36m@@ -212,9 +212,10 @@[m [mnamespace Syllabus_Generator[m
+         {[m
+             Djson djOpen = new Djson();[m
+ [m
+[31m-            Term term = (Term)djOpen.ReadTermFile("term.json");[m
+[32m+[m[32m            List<Term> terms = (List<Term>)djOpen.ReadTermFile("term.json");[m
+[32m+[m
+             listBoxTerm.Items.Clear();[m
+[31m-            listBoxTerm.Items.Add(term.Title);[m
+[32m+[m[32m            listBoxTerm.Items.Add(terms[0].Title);[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/Syllabus Generator/Syllabus Generator.csproj b/Syllabus Generator/Syllabus Generator.csproj[m
+[1mindex d60af01..c54bad1 100644[m
+[1m--- a/Syllabus Generator/Syllabus Generator.csproj[m	
+[1m+++ b/Syllabus Generator/Syllabus Generator.csproj[m	
+[36m@@ -100,6 +100,7 @@[m
+     <Compile Include="FormMain.Designer.cs">[m
+       <DependentUpon>FormMain.cs</DependentUpon>[m
+     </Compile>[m
+[32m+[m[32m    <Compile Include="JsonTransfer.cs" />[m
+     <Compile Include="Oword.cs" />[m
+     <Compile Include="Program.cs" />[m
+     <Compile Include="Properties\AssemblyInfo.cs" />[m
+[1mdiff --git a/Syllabus Generator/Term.cs b/Syllabus Generator/Term.cs[m
+[1mindex c5e46d5..95031a4 100644[m
+[1m--- a/Syllabus Generator/Term.cs[m	
+[1m+++ b/Syllabus Generator/Term.cs[m	
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Newtonsoft.Json;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -6,15 +7,25 @@[m [musing System.Threading.Tasks;[m
+ [m
+ namespace Syllabus_Generator[m
+ {[m
+[32m+[m[32m    class TermJson[m
+[32m+[m[32m    {[m
+[32m+[m[32m        [JsonProperty("term")][m
+[32m+[m[32m        public Term term { get; set; }[m
+[32m+[m[32m    }[m
+[32m+[m
+     class Term[m
+     {[m
+ [m
+[32m+[m[32m        [JsonProperty("Title")][m
+         public string Title { get; set; }[m
+ [m
+[32m+[m[32m        [JsonProperty("DayStart")][m
+         public DateTime DayStart { get; set; }[m
+ [m
+[32m+[m[32m        [JsonProperty("DayEnd")][m
+         public DateTime DayEnd { get; set; }[m
+ [m
+[32m+[m[32m        [JsonProperty("Weeks")][m
+         public int Weeks { get; set; }[m
+        [m
+         public Term(string _title, DateTime _dayStart, DateTime _dayEnd)[m
+[1mdiff --git a/Syllabus Generator/bin/Debug/Syllabus Generator.exe b/Syllabus Generator/bin/Debug/Syllabus Generator.exe[m
+[1mindex 4b0044e..73347f2 100644[m
+Binary files a/Syllabus Generator/bin/Debug/Syllabus Generator.exe and b/Syllabus Generator/bin/Debug/Syllabus Generator.exe differ
+[1mdiff --git a/Syllabus Generator/bin/Debug/Syllabus Generator.pdb b/Syllabus Generator/bin/Debug/Syllabus Generator.pdb[m
+[1mindex 4666805..c1f8097 100644[m
+Binary files a/Syllabus Generator/bin/Debug/Syllabus Generator.pdb and b/Syllabus Generator/bin/Debug/Syllabus Generator.pdb differ
+[1mdiff --git a/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.CoreCompileInputs.cache b/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.CoreCompileInputs.cache[m
+[1mindex 0006edc..106f837 100644[m
+[1m--- a/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.CoreCompileInputs.cache[m	
+[1m+++ b/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.CoreCompileInputs.cache[m	
+[36m@@ -1 +1 @@[m
+[31m-98a36c2053894d83f1c11c391b23eeca399bb713[m
+[32m+[m[32mff39c2ae5a8d3e0617b24445e64224d1418d8b13[m
+[1mdiff --git a/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.GenerateResource.cache b/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.GenerateResource.cache[m
+[1mindex d7aa7fb..33d09d9 100644[m
+Binary files a/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.GenerateResource.cache and b/Syllabus Generator/obj/Debug/Syllabus Generator.csproj.GenerateResource.cache differ
+[1mdiff --git a/Syllabus Generator/obj/Debug/Syllabus Generator.exe b/Syllabus Generator/obj/Debug/Syllabus Generator.exe[m
+[1mindex 4b0044e..73347f2 100644[m
+Binary files a/Syllabus Generator/obj/Debug/Syllabus Generator.exe and b/Syllabus Generator/obj/Debug/Syllabus Generator.exe differ
+[1mdiff --git a/Syllabus Generator/obj/Debug/Syllabus Generator.pdb b/Syllabus Generator/obj/Debug/Syllabus Generator.pdb[m
+[1mindex 4666805..c1f8097 100644[m
+Binary files a/Syllabus Generator/obj/Debug/Syllabus Generator.pdb and b/Syllabus Generator/obj/Debug/Syllabus Generator.pdb differ

@@ -36,6 +36,18 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.1.11.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.1.11.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoRepository.Net45, Version=1.6.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoRepository.1.6.11\lib\net45\MongoRepository.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
@@ -53,11 +65,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment.cs" />
+    <Compile Include="Djson.cs" />
+    <Compile Include="FormAssignmentGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAssignmentGrid.Designer.cs">
+      <DependentUpon>FormAssignmentGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFindReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFindReplace.Designer.cs">
+      <DependentUpon>FormFindReplace.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGradebook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGradebook.Designer.cs">
       <DependentUpon>FormGradebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformation.Designer.cs">
+      <DependentUpon>FormInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTerm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTerm.Designer.cs">
+      <DependentUpon>FormTerm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTopic.cs">
       <SubType>Form</SubType>
@@ -71,11 +109,25 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="JsonTransfer.cs" />
     <Compile Include="Oword.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Term.cs" />
+    <EmbeddedResource Include="FormAssignmentGrid.resx">
+      <DependentUpon>FormAssignmentGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFindReplace.resx">
+      <DependentUpon>FormFindReplace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGradebook.resx">
       <DependentUpon>FormGradebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformation.resx">
+      <DependentUpon>FormInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTerm.resx">
+      <DependentUpon>FormTerm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTopic.resx">
       <DependentUpon>FormTopic.cs</DependentUpon>
@@ -92,6 +144,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="..\packages\MongoRepository.1.6.11\MongoRepository.chm">
+      <Link>Documentation\MongoRepository.chm</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
